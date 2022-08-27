@@ -14,7 +14,8 @@ namespace ConsoleApp88
     {
         static void Main(string[] args)
         {
-            write("我爱我的话");
+            go();
+            go2();
         }
 
         public static string pua = @"GG/1.md";
@@ -91,7 +92,10 @@ namespace ConsoleApp88
             {
                 if (txtid[item]=="F")
                 {
-                    // 在这里工作！
+                    Test tc = new Test();
+                    tc= josnruku(postdouyin(item), item);
+                    write(tc.name);
+                    downAsync(tc.url).Wait();
                     txtid[item] = "T";
                 }
             }
@@ -99,7 +103,7 @@ namespace ConsoleApp88
         
         }
 
-        public string postdouyin(string wordname)
+        public static string postdouyin(string wordname)
         {
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
@@ -110,23 +114,26 @@ namespace ConsoleApp88
             return hh.GetHtml(hi);
         }
 
-        public static void josnruku(string josns , string wordnames)
+        public static Test josnruku(string josns , string wordnames)
         {
             SufeiNet_Test rb = JsonConvert.DeserializeObject<SufeiNet_Test>(josns);
             if (rb.aweme_list.Count != 0)
             {
                 Test t2 = zhengli1(rb.aweme_list[0]);
-                if (t2 == null)
+                if (t2 != null)
+                {
+                    return t2;
+                }
+                else
                 {
                     Console.WriteLine(wordnames + ":采集失败");
-                    return;
-
+                    return null;
                 }
-                // 写入~
             }
             else
             {
                 Console.WriteLine(wordnames + ":没关键字");
+                return null;
             }
         }
 
@@ -210,9 +217,10 @@ namespace ConsoleApp88
 
         public static void write(string txts)
         {
-            if (!Directory.Exists("GG/void"))
+            string lu = "GG/void";
+            if (!Directory.Exists(lu))
             {
-                Directory.CreateDirectory("GG/void");
+                Directory.CreateDirectory(lu);
             }
 
                 using (StreamWriter sw = new StreamWriter("GG/void/txt.md", false))
@@ -220,15 +228,12 @@ namespace ConsoleApp88
                     sw.WriteLine(txts);
 
                 }
-            
-
-
         }
 
-        public static async Task downAsync()
+        public static async Task downAsync(string urls)
         {
-            var url = "https://www.coderbusy.com";
-            var save = @"D:\1.html";
+            var url = urls;
+            var save = "GG/void/lula.mp4";
             if (!File.Exists(save))
             {
                 Console.WriteLine("文件不存在，开始下载...");
