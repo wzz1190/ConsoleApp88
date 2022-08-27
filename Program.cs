@@ -59,6 +59,7 @@ namespace ConsoleApp88
 
         public static string  post()
         {
+            Console.WriteLine("获取关键字");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = "https://raw.githubusercontent.com/wzz1190/ConsoleApp8/master/acc/"+ DateTime.Now.ToString("yyyyMMdd") + ".md";
@@ -128,6 +129,7 @@ namespace ConsoleApp88
 
         public static string postdouyin(string wordname)
         {
+            Console.WriteLine("获取链接~");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = "https://aweme.snssdk.com/aweme/v1/hot/search/video/list/?hotword=" + wordname;
@@ -240,6 +242,7 @@ namespace ConsoleApp88
 
         public static void write(string txts)
         {
+            Console.WriteLine("写入标题");
             string lu = "GG/void";
             if (!Directory.Exists(lu))
             {
@@ -276,6 +279,7 @@ namespace ConsoleApp88
 
         public static void del()
         {
+            Console.WriteLine("删除文件");
             if (Directory.Exists("GG/void"))
             {
                 DirectoryInfo di = new DirectoryInfo("GG/void");
@@ -286,6 +290,7 @@ namespace ConsoleApp88
 
         public static void post2()
         {
+            Console.WriteLine("ye指令");
             HttpHelper hh = new HttpHelper();
             HttpItem hi = new HttpItem();
             hi.URL = "https://eob4vzrz7a48fik.m.pipedream.net";
