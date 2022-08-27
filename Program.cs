@@ -92,11 +92,25 @@ namespace ConsoleApp88
             {
                 if (txtid[item]=="F")
                 {
+                    string posttxt = postdouyin(item);
+                    if (posttxt == "string error")
+                    {
+                        continue;
+                    }
                     Test tc = new Test();
-                    tc= josnruku(postdouyin(item), item);
-                    write(tc.name);
-                    downAsync(tc.url).Wait();
+                    tc= josnruku(posttxt, item);
+                    if (tc!=null)
+                    {
+                        write(tc.name);
+                        downAsync(tc.url).Wait();
+                        return;
+                    }
                     txtid[item] = "T";
+                    using (StreamWriter sw = new StreamWriter(pua, true))
+                    {
+                        sw.WriteLine(item+"|"+"T");
+
+                    }
                 }
             }
         
