@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -106,7 +107,7 @@ namespace ConsoleApp88
                         return;
                     }
                     txtid[item] = "T";
-                    using (StreamWriter sw = new StreamWriter(pua, true))
+                    using (StreamWriter sw = new StreamWriter(pua, true, Encoding.UTF8))
                     {
                         sw.WriteLine(item+"|"+"T");
 
