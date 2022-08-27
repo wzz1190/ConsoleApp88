@@ -4,7 +4,9 @@ using SufeiNet;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace ConsoleApp88
 {
@@ -223,7 +225,26 @@ namespace ConsoleApp88
 
         }
 
+        public static async Task downAsync()
+        {
+            var url = "https://www.coderbusy.com";
+            var save = @"D:\1.html";
+            if (!File.Exists(save))
+            {
+                Console.WriteLine("文件不存在，开始下载...");
+                //先下载到临时文件
+                var tmp = save + ".tmp";
+                using (var web = new WebClient())
+                {
+                    await web.DownloadFileTaskAsync(url, tmp);
+                }
+                File.Move(tmp, save, true);
+                Console.WriteLine("文件下载成功");
+            }
+            Console.WriteLine("开始处理文件");
 
+
+        }
 
     }
 
