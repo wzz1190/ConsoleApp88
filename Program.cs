@@ -18,6 +18,7 @@ namespace ConsoleApp88
             del();
             go();
             go2();
+            post2();
         }
 
         public static string pua = @"GG/1.md";
@@ -280,6 +281,17 @@ namespace ConsoleApp88
                 DirectoryInfo di = new DirectoryInfo("GG/void");
                 di.Delete(true);
             }
+
+        }
+
+        public static void post2()
+        {
+            HttpHelper hh = new HttpHelper();
+            HttpItem hi = new HttpItem();
+            hi.URL = "https://eob4vzrz7a48fik.m.pipedream.net";
+            hi.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+            hi.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36";
+            hh.GetHtml(hi);
 
         }
     }
