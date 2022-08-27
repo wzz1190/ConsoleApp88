@@ -15,6 +15,7 @@ namespace ConsoleApp88
     {
         static void Main(string[] args)
         {
+            del();
             go();
             go2();
         }
@@ -93,6 +94,7 @@ namespace ConsoleApp88
             {
                 if (txtid[item]=="F")
                 {
+                    txtid[item] = "T";
                     string posttxt = postdouyin(item);
                     if (posttxt == "string error")
                     {
@@ -104,18 +106,17 @@ namespace ConsoleApp88
                     {
                         write(tc.name);
                         downAsync(tc.url).Wait();
-                        return;
+                        break ;
                     }
-                    txtid[item] = "T";
                 }
             }
-            using (StreamWriter sw = new StreamWriter(pua, true, Encoding.UTF8))
+            using (StreamWriter sw = new StreamWriter(pua, false))
             {
                 foreach (var item in txtid)
                 {
                     if (item.Value=="T")
                     {
-                        sw.WriteLine(item + "|" + "T");
+                        sw.WriteLine(item.Key + "|" + "T");
                     }
                     
                 }
@@ -272,6 +273,15 @@ namespace ConsoleApp88
 
         }
 
+        public static void del()
+        {
+            if (Directory.Exists("GG/void"))
+            {
+                DirectoryInfo di = new DirectoryInfo("GG/void");
+                di.Delete(true);
+            }
+
+        }
     }
 
     public class Test
