@@ -107,15 +107,21 @@ namespace ConsoleApp88
                         return;
                     }
                     txtid[item] = "T";
-                    using (StreamWriter sw = new StreamWriter(pua, true, Encoding.UTF8))
-                    {
-                        sw.WriteLine(item+"|"+"T");
-
-                    }
                 }
             }
-        
-        
+            using (StreamWriter sw = new StreamWriter(pua, true, Encoding.UTF8))
+            {
+                foreach (var item in txtid)
+                {
+                    if (item.Value=="T")
+                    {
+                        sw.WriteLine(item + "|" + "T");
+                    }
+                    
+                }
+            }
+
+
         }
 
         public static string postdouyin(string wordname)
