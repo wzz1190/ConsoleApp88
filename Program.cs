@@ -23,6 +23,7 @@ namespace ConsoleApp88
             }
             else
             {
+                
                 string a = args[0];
                 Console.WriteLine(a);
             }
