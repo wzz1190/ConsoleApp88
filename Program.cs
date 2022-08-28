@@ -23,6 +23,7 @@ namespace ConsoleApp88
             }
             else
             {
+                
                 string a = args[0];
                 foreach (var item in a)
                 {
