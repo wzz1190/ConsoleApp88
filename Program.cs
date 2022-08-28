@@ -15,7 +15,16 @@ namespace ConsoleApp88
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(args[0].ToString());
+            if (args.Length==0)
+            {
+                Console.WriteLine("空");
+            }
+            else
+            {
+                string a = args[0];
+                Console.WriteLine(a);
+            }
+            
            // del();
            // go();
            // go2();
