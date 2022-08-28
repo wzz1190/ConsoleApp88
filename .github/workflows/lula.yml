@@ -48,7 +48,7 @@ jobs:
     - name: Run
       env:        
         accounts: ${{secrets.ACCOUNTS}}
-      run: dotnet run -- ${ACCOUNTS}
+      run: dotnet run -- ${accounts}
            # 更新仓库
     - name: Update repo
       run: |
