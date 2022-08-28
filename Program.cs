@@ -15,10 +15,11 @@ namespace ConsoleApp88
     {
         static void Main(string[] args)
         {
-            del();
-            go();
-            go2();
-            post2();
+            Console.WriteLine(args[0].ToString());
+           // del();
+           // go();
+           // go2();
+           // post2();
         }
 
         public static string pua = @"GG/1.md";
