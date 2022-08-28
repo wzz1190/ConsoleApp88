@@ -24,7 +24,11 @@ namespace ConsoleApp88
             else
             {
                 string a = args[0];
-                Console.WriteLine(a);
+                foreach (var item in a)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+               
             }
             
            // del();
