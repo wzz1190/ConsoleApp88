@@ -65,7 +65,8 @@ namespace ConsoleApp88
 
         public static void xie(string txtl)
         {
-            using (StreamWriter sw = new StreamWriter(pua, false, Encoding.UTF8))
+            // Encoding.UTF8
+            using (StreamWriter sw = new StreamWriter(pua, false))
             {
 
                     sw.WriteLine(txtl);
