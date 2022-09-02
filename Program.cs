@@ -46,7 +46,7 @@ namespace ConsoleApp88
 
         public static void du(string txt)
         {
-            using (StreamReader sr = new StreamReader(pua))
+            using (StreamReader sr = new StreamReader(pua, Encoding.UTF8))
             {
                 string line = sr.ReadLine();
                 while (line != null)
@@ -65,7 +65,7 @@ namespace ConsoleApp88
 
         public static void xie(string txtl)
         {
-            using (StreamWriter sw = new StreamWriter(pua, false, Encoding.Default))
+            using (StreamWriter sw = new StreamWriter(pua, false, Encoding.UTF8))
             {
 
                     sw.WriteLine(txtl);
