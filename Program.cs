@@ -17,26 +17,64 @@ namespace ConsoleApp88
 
         static void Main(string[] args)
         {
-            if (args.Length==0)
-            {
-                Console.WriteLine("空");
-            }
-            else
-            {
-                
-                string a = args[0];
-                foreach (var item in a)
-                {
-                    Console.WriteLine(item.ToString());
-                }
-               
-            }
-            
-           // del();
-           // go();
-           // go2();
-           // post2();
+            //if (args.Length==0)
+            //{
+            //    Console.WriteLine("空");
+            //}
+            //else
+            //{
+
+            //    string a = args[0];
+            //    foreach (var item in a)
+            //    {
+            //        Console.WriteLine(item.ToString());
+            //    }
+
+            //}
+
+            // del();
+            // go();
+            // go2();
+            // post2();
+
+            string ss = "专家回应疑似南京相册真实性|9698331|1";
+
+
+
+
         }
+
+        public static void du(string txt)
+        {
+            using (StreamReader sr = new StreamReader(pua))
+            {
+                string line = sr.ReadLine();
+                while (line != null)
+                {
+                    if (line != "")
+                    {
+                        // lstxt.Add(line);
+                        txt += line;
+                    }
+                    line = sr.ReadLine();
+                }
+            }
+            Console.WriteLine(txt);
+
+        }
+
+        public static void xie(string txtl)
+        {
+            using (StreamWriter sw = new StreamWriter(pua, false, Encoding.Default))
+            {
+
+                    sw.WriteLine(txtl);
+            }
+
+        }
+
+
+
 
         public static string pua = @"GG/1.md";
         public static Dictionary<string, string> txtid;
