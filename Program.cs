@@ -38,8 +38,8 @@ namespace ConsoleApp88
             // post2();
 
             string ss = "专家回应疑似南京相册真实性|9698331|1";
-
-
+            xie(ss);
+            du("");
 
 
         }
